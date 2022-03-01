@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Shopping Cart</title>
+</head>
+<style>
+    .head {
+
+        background-color: #F34D35;
+        height: 57px
+    }
+
+    #shpcrt {
+        font-size: 43px;
+        float: left;
+        color: white;
+    }
+
+    .btn {
+        float: right;
+        padding: 11px;
+        width: 12%;
+        background-color: hsl(197, 69%, 61%);
+        border: none;
+        border-radius: 7px;
+        color: white;
+        font-weight: bold;
+    }
+
+    table {
+        margin-top: 70px;
+        /* background-color: #F34D35; */
+        border-collapse: collapse;
+        border-radius: 9px;
+    }
+
+    td {
+        width: 333px;
+        padding: 15px;
+        color: white;
+    }
+
+    .theading {
+        background-color: #F34D35;
+    }
+
+    .mid {
+        text-align: center;
+    }
+
+    .mid td {
+        color: black;
+        background-color: #F7F7F7;
+    }
+
+    .lower {
+        text-align: center;
+    }
+
+    .lower td {
+        color: black;
+    }
+
+    .upper td {
+        color: black;
+        text-align: center;
+    }
+
+    input[type=number] {
+        width: 28px;
+        height: 17px;
+        padding: 10px;
+        border-radius: 4px;
+        color: gray;
+    }
+
+    input[type=button] {
+        border: none;
+        border-radius: 20px;
+        padding: 8px;
+        background-color: #6EBFE9;
+        width: 43px;
+        font-size: 21px;
+        color: white;
+    }
+
+    .footer {
+        background-color: #F34D35;
+        height: 150px
+    }
+
+    .footer table td {
+
+        width: 139px;
+
+    }
+
+
+    div table td {
+        font-weight: bolder;
+    }
+
+    i {
+        cursor: pointer;
+    }
+
+    img {
+        float: left;
+    }
+</style>
+
+<body>
+    <div class="mainDiv">
+        <p class="head"><span id="shpcrt"> Shopping Cart </span></p>
+    </div>
+
+    <div>
+        <Button class="btn" onclick="checkout()">Update cart</Button>
+    </div>
+
+    <div>
+        <table>
+            <tr class="theading">
+                <td style="width: 50%;">PRODUCT</td>
+                <td style="text-align: center;">Price</td>
+                <td style="text-align: center;">QTY</td>
+                <td style="text-align: center;">VAT</td>
+                <td style="text-align: center;">TOTAL</td>
+            </tr>
+
+            <tr class="upper">
+                <td> <img src="123.jpg" alt="kitten" style="color:  black;"> <span
+                        style="color: grey; margin-left: 284px; ">Happy Little Critter</span></td>
+                <td value=59.99 id="p1"  style="color: #8B8B8B;">£59.99</td>
+                <td> <input type="button" value="-" onclick="decreaseItem1()"> <input type="number" id="demoInput1"
+                        min="0" max="20"> <input type="button" value="+" onclick="increaseItem1()"> </td>
+                <td value="2.95" id="v1"  style="color: #8B8B8B;">£2.95</td>
+                <td id="t1" style="color: #36C9B1;"></td>
+            </tr>
+
+            <tr class="mid">
+                <td> <img src="345.jpg" alt="kitten" style="color:  black;"> <span
+                        style="color: grey; margin-left: 284px; ">Scared Little Kittie</span> </td>
+                <td value=23.99 id="p2"  style="color: #8B8B8B;">£23.99</td>
+                <td><input type="button" value="-" onclick="decreaseItem2()"> <input type="number" id="demoInput2"
+                        min="0" max="20"> <input type="button" value="+" onclick="increaseItem2()"></td>
+                <td value="1.95" id="v2"  style="color: #8B8B8B;">£1.95</td>
+                <td id="t2" style="color: #36C9B1;"></td>
+            </tr>
+
+            <tr class="lower">
+                <td> <img src="345.jpg" alt="kitten" style="color:  black;"> <span
+                        style="color: grey; margin-left: 284px; ">Curious Little Begger</span> </td>
+                <td value=59.99 id="p3"  style="color: #8B8B8B;">£59.99</td>
+                <td> <input type="button" value="-" onclick="decreaseItem3()"> <input type="number" id="demoInput3"
+                        min="0" max="20"> <input type="button" value="+" onclick="increaseItem3()"></td>
+                <td value='2.95' id="v3"  style="color: #8B8B8B;">£2.95</td>
+                <td id="t3" style="color: #36C9B1;"></td>
+            </tr>
+        </table>
+        <div class="footer">
+            <table style="display:flex; justify-content: flex-end;">
+                <tr>
+                    <td>VAT</td>
+                    <td id="vv1"></td>
+                </tr>
+                <tr>
+                    <td>SHIPPING</td>
+                    <td id="ss1"></td>
+                </tr>
+                <tr>
+                    <td>TOTAL</td>
+                    <td id="tt1"></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <script>
+
+
+
+        function increaseItem1() {
+            document.getElementById('demoInput1').stepUp();
+            console.log("i");
+        };
+
+
+        function decreaseItem1() {
+            document.getElementById('demoInput1').stepDown();
+            console.log("d");
+        }
+
+        function increaseItem2() {
+            document.getElementById('demoInput2').stepUp();
+            console.log("i");
+        }
+
+
+        function decreaseItem2() {
+            document.getElementById('demoInput2').stepDown();
+            console.log("d");
+        }
+
+
+        function increaseItem3() {
+            document.getElementById('demoInput3').stepUp();
+            console.log("i");
+        }
+
+
+        function decreaseItem3() {
+            document.getElementById('demoInput3').stepDown();
+            console.log("d");
+        }
+
+        function checkout() {
+
+            let qty1 = document.getElementById("demoInput1").value;
+            let qty2 = document.getElementById("demoInput2").value;
+            let qty3 = document.getElementById("demoInput3").value;
+
+            if (qty1 == 0 || qty2 == 0 || qty3 == 0) {
+                alert("Please Select the Quantity of Product ");
+                return false;
+            }
+
+
+            let Total1 = qty1 * 59.99 + 2.95;
+
+            document.getElementById('t1').innerHTML = Total1;
+
+            let Total2 = qty2 * 23.99 + 1.95;
+            document.getElementById('t2').innerHTML = Total2;
+
+            let Total3 = qty3 * 59.99 + 2.95;
+            document.getElementById('t3').innerHTML = Total3;
+
+            let VAT = 2.95 + 1.95 + 2.95;
+            document.getElementById('vv1').innerHTML = VAT;
+
+            let Shiping = 4.00;
+            document.getElementById('ss1').innerHTML = Shiping;
+
+            let Grandtotal = Shiping + VAT + Total1 + Total2 + Total3;
+
+            document.getElementById('tt1').innerHTML = Grandtotal;
+
+            console.log(qty1, Total1);
+            console.log(qty2);
+            console.log(qty3);
+        }
+
+    </script>
+</body>
+
+</html>
